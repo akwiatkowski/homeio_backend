@@ -13,6 +13,8 @@
 class OverseerArray {
  public:
   OverseerArray();
+  ~OverseerArray();
+
   unsigned int add(Overseer *m);
   void start();
   void stop();

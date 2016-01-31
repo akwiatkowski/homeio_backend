@@ -8,6 +8,13 @@ OverseerArray::OverseerArray() {
   ready = false;
 }
 
+OverseerArray::~OverseerArray() {
+  for(std::vector<Overseer>::iterator it = overseers.begin(); it != overseers.end(); ++it) {
+    delete &(*it);
+  }
+  overseers.clear();
+}
+
 unsigned int OverseerArray::add(Overseer *o) {
   overseers.push_back(*o);
   logArray->log("Overseer", "added: '" + o->name + "' (" + std::to_string(overseers.size()) + " total overseers)");

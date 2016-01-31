@@ -315,7 +315,6 @@ std::vector < MeasTrend > MeasType::getTrendsBetween(unsigned long long timeFrom
   // add last element
   result.push_back(*tempTrend);
 
-  // TODO this must be deleted after store
   return result;
 }
 
@@ -340,6 +339,11 @@ std::string MeasType::statsJson(unsigned long long timeFrom, unsigned long long 
 
     trendString += "},";
   }
+  // delete not used data
+  for(std::vector<MeasTrend>::iterator it = result.begin(); it != result.end(); ++it) {
+    delete &(*it);
+  }
+  result.clear();
 
   // remove last coma
   if (trendString[trendString.size() - 1] == ',') {

@@ -22,7 +22,7 @@ class MeasFetcher {
   unsigned long int maxBufferSize; // 1000000
 
   bool ready;
-  bool isRunning; // TODO remove id
+  bool isRunning;
   std::mutex shutdownMutex;
 };
 

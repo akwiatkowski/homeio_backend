@@ -10,6 +10,8 @@
 class MeasTypeArray {
  public:
   MeasTypeArray();
+  ~MeasTypeArray();
+  
   unsigned int add(MeasType *m);
   MeasType *byName(std::string s);
 

@@ -11,6 +11,8 @@
 class ActionTypeArray {
  public:
   ActionTypeArray();
+  ~ActionTypeArray();
+
   unsigned int add(ActionType *m);
   ActionType *byName(std::string s);
 

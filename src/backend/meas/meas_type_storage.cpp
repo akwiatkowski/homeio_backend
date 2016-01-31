@@ -55,7 +55,6 @@ std::vector < StorageHash > MeasTypeStorage::prepareStorageBuffer() {
     i++;
   }
 
-  // TODO this must be deleted after save
   return storageBuffer;
 }
 
@@ -90,6 +89,12 @@ std::string MeasTypeStorage::storageBufferJson() {
   for(std::vector<StorageHash>::iterator it = shBuffer.begin(); it != shBuffer.end(); ++it) {
     json += it->toJson() + ",";
   }
+  // delete not used data
+  for(std::vector<StorageHash>::iterator it = shBuffer.begin(); it != shBuffer.end(); ++it) {
+    delete &(*it);
+  }
+  shBuffer.clear();
+
   // remove last coma
   if (json[json.size() - 1] == ',') {
     json.resize(json.size() - 1);

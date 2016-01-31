@@ -13,6 +13,8 @@
 class AddonsArray {
  public:
   AddonsArray();
+  ~AddonsArray();
+
   void start();
   void stop();
   void add(AbstractAddon *a);

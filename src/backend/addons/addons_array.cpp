@@ -7,6 +7,13 @@ AddonsArray::AddonsArray() {
   ready = false;
 }
 
+AddonsArray::~AddonsArray() {
+  for (auto itr = addons.begin(); itr != addons.end(); ++itr) {
+    delete &(*itr);
+  }
+  addons.clear();
+}
+
 void AddonsArray::start() {
   logArray->log("AddonsArray", "start");
 

@@ -5,6 +5,13 @@ MeasTypeArray::MeasTypeArray() {
   i = 0;
 }
 
+MeasTypeArray::~MeasTypeArray() {
+  for(std::vector<MeasType>::iterator it = measTypes.begin(); it != measTypes.end(); ++it) {
+    delete &(*it);
+  }
+  measTypes.clear();
+}
+
 unsigned int MeasTypeArray::add(MeasType *m) {
   m->index = i;
   m->logArray = logArray;

@@ -121,7 +121,6 @@ void NcursesUI::start() {
 }
 
 void NcursesUI::stop() {
-  // TODO move to stop
   for (int i=0; i <= NC_MENU_LAST; i++) {
     free_item(my_items[i]);
   }
@@ -134,7 +133,6 @@ void NcursesUI::redrawWindow() {
   //wborder(w, ' ', ' ', ' ',' ',' ',' ',' ',' ');
   wrefresh(local_win);
   delwin(local_win);
-  //delete local_win; // TODO
 
   // new
   local_win = newwin(LINES - 1, COLS, 1, 0);

@@ -3,6 +3,13 @@
 ActionTypeArray::ActionTypeArray() {
 }
 
+ActionTypeArray::~ActionTypeArray() {
+  for(std::vector<ActionType>::iterator it = actionTypes.begin(); it != actionTypes.end(); ++it) {
+    delete &(*it);
+  }
+  actionTypes.clear();
+}
+
 unsigned int ActionTypeArray::add(ActionType *a) {
   a->logArray = logArray;
   actionTypes.push_back(*a);
