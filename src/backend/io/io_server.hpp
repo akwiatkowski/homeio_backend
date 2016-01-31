@@ -11,6 +11,7 @@
 class IoServer {
  public:
   IoServer();
+  ~IoServer();
   void start();
   void stop();
 

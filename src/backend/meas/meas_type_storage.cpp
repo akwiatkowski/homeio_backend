@@ -55,6 +55,7 @@ std::vector < StorageHash > MeasTypeStorage::prepareStorageBuffer() {
     i++;
   }
 
+  // TODO this must be deleted after save
   return storageBuffer;
 }
 

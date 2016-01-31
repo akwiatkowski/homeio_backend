@@ -26,6 +26,11 @@ MeasType::MeasType() {
   lastStored = Helper::mTime();
 }
 
+MeasType::~MeasType() {
+  delete buffer;
+  delete measTypeStorage;
+}
+
 void MeasType::resizeBuffer(unsigned long int _maxSize = 1000000) {
   buffer->clearAndResize(_maxSize);
 }
@@ -310,6 +315,7 @@ std::vector < MeasTrend > MeasType::getTrendsBetween(unsigned long long timeFrom
   // add last element
   result.push_back(*tempTrend);
 
+  // TODO this must be deleted after store
   return result;
 }
 

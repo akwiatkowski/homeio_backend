@@ -20,6 +20,7 @@
 #include "utils/helper.hpp"
 #include "utils/frontend_settings.hpp"
 #include "utils/spy.hpp"
+#include "utils/boot.hpp"
 
 #include "io/io_proxy.hpp"
 #include "io/io_server.hpp"
@@ -34,6 +35,8 @@
 class HomeIO {
  public:
   HomeIO();
+  ~HomeIO();
+
   void prepareDirectories();
   unsigned char startFetch();
   unsigned char startServer();
@@ -51,6 +54,7 @@ class HomeIO {
 
   void copyInternalDelays();
 
+  Boot *boot;
   MeasTypeArray *measTypeArray;
   MeasFetcher *measFetcher;
   IoProxy *ioProxy;
