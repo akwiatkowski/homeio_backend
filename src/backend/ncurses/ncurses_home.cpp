@@ -68,7 +68,7 @@ void NcursesHome::render(WINDOW *w) {
   //mvwprintw(w, NC_THREADS_SHUTDOWN, 1, "shutdownWatchThread" );
   //mvwprintw(w, NC_THREADS_SHUTDOWN, NC_THREADS_STATUS, std::to_string(ioServer->ready).c_str() );
   //renderStatus(w, NC_THREADS_MEAS, measFetcher->ready);
-  //h->ncursesUI->beginShutdown
+  //h->boot->beginShutdown
 
 
 }

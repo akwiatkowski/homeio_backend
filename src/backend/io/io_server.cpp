@@ -17,6 +17,11 @@ IoServer::IoServer() {
   isRunning = true;
 }
 
+IoServer::~IoServer() {
+  delete rs;
+  delete tcp;
+}
+
 void IoServer::start() {
   rs->port = port;
   rs->openRS();

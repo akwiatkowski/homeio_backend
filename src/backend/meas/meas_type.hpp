@@ -18,6 +18,8 @@
 class MeasType {
  public:
   MeasType();
+  ~MeasType();
+  
   void resizeBuffer(unsigned long int);
   unsigned int fetch();
   unsigned int addRaw(unsigned int);

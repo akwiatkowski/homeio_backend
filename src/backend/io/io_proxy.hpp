@@ -17,6 +17,8 @@
 class IoProxy {
  public:
   IoProxy();
+  ~IoProxy();
+  in_addr *tmpAddr;
   std::string address;
   uint16_t port;
   bool verbose;

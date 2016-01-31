@@ -3,6 +3,7 @@
 HomeIO::HomeIO() {
   prepareDirectories();
 
+  boot = new Boot;
   logArray = new LogArray;
   measTypeArray = new MeasTypeArray;
   measFetcher = new MeasFetcher;
@@ -70,6 +71,25 @@ HomeIO::HomeIO() {
   ioServer->logArray = logArray;
   ioServer->tcp->logArray = logArray;
 
+}
+
+HomeIO::~HomeIO() {
+  delete logArray;
+  delete measTypeArray;
+  delete ioProxy;
+  delete tcpServer;
+  delete tcpCommand;
+  delete ioServer;
+  delete actionTypeArray;
+  delete overseerArray;
+  delete fileStorage;
+  delete measBufferBackupStorage;
+  delete frontendSettings;
+  delete spy;
+  delete measGroup;
+  delete addonsArray;
+  delete ncursesUI;
+  delete boot;
 }
 
 void HomeIO::prepareDirectories() {
@@ -227,7 +247,7 @@ void *ncursesThread(void *argument) {
 
 void *shutdownWatchThread(void *argument) {
   HomeIO *h = (HomeIO *) argument;
-  while (h->ncursesUI->beginShutdown == false) {
+  while (h->boot->beginShutdown == false) {
     usleep(40000);
   }
   h->stop();
